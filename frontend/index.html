@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIBE-CHECK | Premium Dashboard</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Floating Sidebar Nav -->
+        <aside class="sidebar glass-panel">
+            <div class="logo">
+                <div class="logo-icon"></div>
+                <h2>VIBE<span>CHECK</span></h2>
+            </div>
+            
+            <nav class="nav-links">
+                <a href="#" class="active"><i class="icon">📊</i> Dashboard</a>
+                <a href="#"><i class="icon">🎵</i> Tracks</a>
+                <a href="#"><i class="icon">🧠</i> Emotion Engine</a>
+            </nav>
+
+            <div class="filter-section">
+                <h3>Vibe Filter</h3>
+                <div class="input-group">
+                    <label>Emotion</label>
+                    <select id="emotion-filter">
+                        <option value="All">All Emotions</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Genre</label>
+                    <select id="genre-filter">
+                        <option value="All">All Genres</option>
+                    </select>
+                </div>
+                <button id="apply-filters" class="btn-primary">Apply Filters</button>
+            </div>
+            
+            <div class="sidebar-footer">
+                <p>AI-Powered Pulse</p>
+            </div>
+        </aside>
+
+        <!-- Main Dashboard Area -->
+        <main class="dashboard">
+            <header class="top-nav">
+                <div class="search-bar glass-panel">
+                    <input type="text" placeholder="Search tracks, artists, vibes...">
+                </div>
+                <div class="user-profile">
+                    <div class="avatar"></div>
+                </div>
+            </header>
+
+            <div class="kpi-grid">
+                <div class="kpi-card glass-panel fade-in">
+                    <p class="kpi-label">Trending Tracks Tracking</p>
+                    <h1 class="kpi-value" id="kpi-total">0</h1>
+                </div>
+                <div class="kpi-card glass-panel fade-in delay-1">
+                    <p class="kpi-label">Global Top Vibe Today</p>
+                    <h1 class="kpi-value highlight" id="kpi-vibe">N/A</h1>
+                </div>
+                <div class="kpi-card glass-panel fade-in delay-2">
+                    <p class="kpi-label">Global Average Energy</p>
+                    <h1 class="kpi-value" id="kpi-energy">0.0</h1>
+                </div>
+            </div>
+
+            <div class="visual-section">
+                <div class="chart-container glass-panel fade-in delay-3">
+                    <h3>Daily Vibe Shift <span class="subtitle">(Energy vs Valence)</span></h3>
+                    <div class="canvas-wrapper">
+                        <canvas id="vibeChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-section glass-panel fade-in delay-4">
+                <div class="table-header">
+                    <h3>Top Trending Tracks</h3>
+                    <button class="btn-secondary">Export Data</button>
+                </div>
+                <div class="table-wrapper">
+                    <table id="tracks-table">
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>Track</th>
+                                <th>Vibe</th>
+                                <th>Genre</th>
+                                <th>Score</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tracks-body">
+                            <!-- Dynamic Rows Here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
